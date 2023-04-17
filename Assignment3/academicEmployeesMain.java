@@ -12,11 +12,18 @@ public class academicEmployeesMain {
 	public static void main(String[] args) {
 		char getEmpDetails;
 		char empChoice;
-		String empPpsNum;
+		String empPpsNum = "";
 		
-		do {
-			System.out.print("\nWould you like to get Employee pay details?(y/n):");
-			getEmpDetails = sc.nextLine().charAt(0);
+		
+		do {	
+			do {
+				System.out.print("\nWould you like to get Employee pay details?(y/n):");
+				getEmpDetails = sc.nextLine().charAt(0);
+				
+				if (Character.toUpperCase(getEmpDetails) != 'Y' && Character.toUpperCase(getEmpDetails) != 'N')
+					System.err.print("\nPlease enter y/Y for yes or n/Y for no\n");
+				
+			} while (Character.toUpperCase(getEmpDetails) != 'Y' && Character.toUpperCase(getEmpDetails) != 'N');
 			
 			// Outputting thank you message when they don't want another quote.
 			if (Character.toUpperCase(getEmpDetails) == 'N') 
@@ -49,10 +56,10 @@ public class academicEmployeesMain {
 				
 				// Outputting thank you message when they don't want another quote.
 				if (Character.toUpperCase(empChoice) == 'S') {
-					System.out.println("You have signed out."); // could champ empchoice to n?
+					System.out.printf("\nEmployee " + empPpsNum + " has successfully signed out\n"); // could champ empchoice to n?
 				}
 							
-				else if (Character.toUpperCase(empChoice) == 'F') {
+				if (Character.toUpperCase(empChoice) == 'F') {
 					fullTime fulltime = new fullTime();
 
 					fulltime.calcBonusPay();
@@ -62,8 +69,10 @@ public class academicEmployeesMain {
 					fulltime.calcTax();
 					fulltime.calcPrsi();
 					fulltime.calcNetPay();
+					System.out.printf("\nHere are " + empPpsNum + " pay details below:\n");
 					fulltime.outPut();
 				}
+				
 
 				else if (Character.toUpperCase(empChoice) == 'P') {
 					partTime parttime = new partTime();
@@ -74,6 +83,7 @@ public class academicEmployeesMain {
 					parttime.calcTax();
 					parttime.calcPrsi();
 					parttime.calcNetPay();
+					System.out.printf("\nHere are " + empPpsNum + " pay details below:\n");
 					parttime.outPut();
 				}
 
@@ -85,6 +95,7 @@ public class academicEmployeesMain {
 					principle.calcTax();
 					principle.calcPrsi();
 					principle.calcNetPay();
+					System.out.printf("\nHere are " + empPpsNum + " pay details below:\n");
 					principle.outPut();
 				}
 				

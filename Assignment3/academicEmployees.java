@@ -44,7 +44,6 @@ public abstract class academicEmployees {
 	}
 	
 	public void outPut() {
-		System.out.printf("\nHere are your pay details below:\n");
 		System.out.printf("\nGrossPay:%23s", money.format(grossPay));
 		System.out.printf("\nTax:%28s", money.format(tax));
 		System.out.printf("\nPRSI:%27s", money.format(prsi));
