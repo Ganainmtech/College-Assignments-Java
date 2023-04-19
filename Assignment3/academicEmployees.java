@@ -6,6 +6,7 @@ package academicEmployees;
 
 import java.util.Scanner;
 import java.text.DecimalFormat;
+import java.math.BigDecimal;
 
 public abstract class academicEmployees {
 	public static Scanner sc = new Scanner (System.in);
@@ -18,23 +19,29 @@ public abstract class academicEmployees {
 	protected float monthlySalary;
 
 	public void calcTax() {
-		float taxLowerCharge = 0.22f;
-		float taxHigherCharge = 0.42f;
+		final float taxLowerCharge = 0.22f;
+		final float taxHigherCharge = 0.42f;
 		float taxBasicCharge;
 		float taxSpecialCharge;
+		double sum = 40000/12;
+		System.out.print("sum" + sum);
 	   
-		if (grossPay > 40000) {
-	    	taxBasicCharge = (40000 / 100) * taxLowerCharge;
-	    	taxSpecialCharge = ((grossPay - 40000) / 100) * taxHigherCharge;
+		if (grossPay > 40000/12) {
+	    	taxBasicCharge = (40000/12) * taxLowerCharge;
+	    		System.out.print("\n"+taxBasicCharge);
+	    	taxSpecialCharge = (grossPay - 40000/12) * taxHigherCharge;
+	    	System.out.print("\n" + taxSpecialCharge);
 	        tax = taxBasicCharge + taxSpecialCharge;
+	        System.out.print("\n" + tax);
 		}
 	    else
-	    	tax = (grossPay / 100) * taxLowerCharge;
+	    	tax = grossPay * taxLowerCharge;
+		System.out.print("\n" + tax);
 		
 	}
 	
 	public void calcPrsi() {
-		prsi = monthlySalary * 0.04f;
+		prsi = grossPay * 0.04f;
 		
 	}
 	
@@ -43,7 +50,7 @@ public abstract class academicEmployees {
 	
 	}
 	
-	public void outPut() {
+	public void outPutPayDetails() {
 		System.out.printf("\nGrossPay:%23s", money.format(grossPay));
 		System.out.printf("\nTax:%28s", money.format(tax));
 		System.out.printf("\nPRSI:%27s", money.format(prsi));
@@ -51,3 +58,5 @@ public abstract class academicEmployees {
 		
 	}
 }
+
+
