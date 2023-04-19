@@ -1,11 +1,7 @@
 package academicEmployees;
 
 import java.util.Scanner;
-/*
-import academicEmployees.fullTime;
-import academicEmployees.partTime;
-import academicEmployees.principle;
-*/
+
 public class academicEmployeesMain {
 	public static Scanner sc = new Scanner (System.in);
 	
@@ -41,9 +37,9 @@ public class academicEmployeesMain {
 						System.out.print("\nChoose your employee status."
 									+ "\nF: Full Time Employee" 
 									+ "\nP: Part Time Employee"
-									+ "\nL: Lead Principle Employee" 
-									+ "\nS: Sign Out"
-									+ "\nSelect corresponding letter above: ");
+									+ "\nH: Head Principle Employee" 
+									+ "\nS: Sign Out\n");
+									
 						}
 					else
 					{
@@ -52,25 +48,32 @@ public class academicEmployeesMain {
 					
 				} while (!empPpsNum.matches("\\d{7}[a-zA-Z]{1}"));
 			
-				empChoice = sc.nextLine().charAt(0);
+				do {
+					
+					System.err.print("Please pick F for Fulltime, P for Parttime, H for Head Principle and S to sign out: ");
+					empChoice = sc.nextLine().charAt(0);
+					
+				} while (Character.toUpperCase(empChoice) != 'F' && Character.toUpperCase(empChoice) != 'P'
+						&&Character.toUpperCase(empChoice) != 'H' && Character.toUpperCase(empChoice) != 'S');
 				
 				// Outputting thank you message when they don't want another quote.
 				if (Character.toUpperCase(empChoice) == 'S') {
-					System.out.printf("\nEmployee " + empPpsNum + " has successfully signed out\n"); // could champ empchoice to n?
+					System.out.printf("\nEmployee " + empPpsNum + " has successfully signed out\n"); 
 				}
 							
 				if (Character.toUpperCase(empChoice) == 'F') {
 					fullTime fulltime = new fullTime();
 
-					fulltime.calcBonusPay();
+					fulltime.calcScalePointsPay();
 					fulltime.calcCorrectedScripts();
 					fulltime.calcDeductions();
 					fulltime.calcGrossPay();
 					fulltime.calcTax();
 					fulltime.calcPrsi();
 					fulltime.calcNetPay();
-					System.out.printf("\nHere are " + empPpsNum + " pay details below:\n");
-					fulltime.outPut();
+					System.out.printf("\nHere are " + empPpsNum + " Full Time work details.\n");
+					fulltime.outPutWorkDetails();
+					fulltime.outPutPayDetails();
 				}
 				
 
@@ -83,20 +86,22 @@ public class academicEmployeesMain {
 					parttime.calcTax();
 					parttime.calcPrsi();
 					parttime.calcNetPay();
-					System.out.printf("\nHere are " + empPpsNum + " pay details below:\n");
-					parttime.outPut();
+					System.out.printf("\nHere are " + empPpsNum + " Part Time work details.\n");
+					parttime.outPutWorkDetails();
+					parttime.outPutPayDetails();
 				}
 
-				else if (Character.toUpperCase(empChoice) == 'L') {
+				else if (Character.toUpperCase(empChoice) == 'H') {
 					principle principle = new principle();
 
-					principle.calcBonusPay();
+					principle.calcTeacherCapacityPay();
 					principle.calcGrossPay();
 					principle.calcTax();
 					principle.calcPrsi();
 					principle.calcNetPay();
-					System.out.printf("\nHere are " + empPpsNum + " pay details below:\n");
-					principle.outPut();
+					System.out.printf("\nHere are " + empPpsNum + " Principle work details.\n");
+					principle.outPutWorkDetails();
+					principle.outPutPayDetails();
 				}
 				
 		} while (Character.toUpperCase(getEmpDetails) == 'Y');
