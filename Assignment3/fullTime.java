@@ -3,56 +3,53 @@
 // --------------------------------------------------------
 
 package academicEmployees;
-import java.util.Scanner;
 
-public class fullTime extends academicEmployees {
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class fullTime extends teacher {
 	public static Scanner sc = new Scanner (System.in);
+	public static DecimalFormat money = new DecimalFormat ("€0.00");
 	
-	// Members
-	public float examScriptsPay;
 	public float scalePointsPay;
 	public float daysAbsentDeductions;
-	
-	// Method to calculate gross pay
-	public void calcGrossPay() {
-		monthlySalary = 3343.58f;
-		grossPay = (monthlySalary + examScriptsPay + scalePointsPay) - daysAbsentDeductions;
-	}
+	public int scalePoints;
+	public int daysAbsent;
 
-	// Method to calculate any bonus pay 
-	public void calcBonusPay() {
-		int pointsOnScale = 0;
+
+	public void calcScalePointsPay() {
 		do {
 			System.out.print("\nEnter your Points on Scale: ");
-			pointsOnScale = sc.nextInt();
-			if (pointsOnScale > 4 || pointsOnScale < 0)
+			scalePoints = sc.nextInt();
+			if (scalePoints > 4 || scalePoints < 0)
 				System.err.println("\nPlease pick a number on the scale between 0 to 4.");
-			else if (pointsOnScale == 1)
+			else if (scalePoints == 1)
 				scalePointsPay += 426.67;
-			else if (pointsOnScale == 2)
+			else if (scalePoints == 2)
 				scalePointsPay += 565.75;
-			else if (pointsOnScale == 3)
+			else if (scalePoints == 3)
 				scalePointsPay += 666.58;
 			else
 				scalePointsPay += 750;
-		} while (pointsOnScale > 4 || pointsOnScale < 0);
-		
+		} while (scalePoints > 4 || scalePoints < 0);
 	}
 
-	// Method to calculate how much is earned from correcting exam scripts
-	public void calcCorrectedScripts() {
-		System.out.print("\nEnter the amount of scripts corrected: ");
-		int examScriptsCorrected = sc.nextInt();
-		
-		if (examScriptsCorrected > 0)
-			examScriptsPay = examScriptsCorrected * 10.18f;
-	}
-
-	// Method to calculate the deductions of absent days
 	public void calcDeductions() {
 		System.out.print("\nEnter the amount of days absent: ");
-		float daysAbsent = sc.nextInt();
+		daysAbsent = sc.nextInt();
 		
 		daysAbsentDeductions = daysAbsent * 62.68f;
+	}
+
+	public void calcGrossPay() {
+		monthlySalary = 3343.58f;
+		grossPay = monthlySalary + examScriptsPay + scalePointsPay - daysAbsentDeductions;
+	}
+	
+	public void outPutWorkDetails() {
+		System.out.printf("\nCorrected Exam Scripts: " + examScriptsCorrected + " | Total while 10.18 per script = " + money.format(examScriptsPay));
+		System.out.printf("\nPoints on Scale: " + scalePoints + " | Total points on scale pay = " + money.format(scalePointsPay));
+		System.out.printf("\nDays Absent: " + daysAbsent +" | Total deducated while 62.68 per absent day = " + money.format(daysAbsentDeductions) + "\n");
+		
 	}
 }
