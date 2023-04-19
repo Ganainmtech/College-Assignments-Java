@@ -3,29 +3,40 @@
 // --------------------------------------------------------
 
 package academicEmployees;
+
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class principle extends academicEmployees {
 	public static Scanner sc = new Scanner (System.in);
+	public static DecimalFormat money = new DecimalFormat ("€0.00");
 	
-	public int workCapcityPay;
+	public float workCapcityPay;
+	public int numOfTeachers;
 
-	public void calcBonusPay() {
+	public void calcTeacherCapacityPay() {
 		System.out.print("\nEnter the amount of Teachers in your school: ");
-		int numOfEmps = sc.nextInt();
+		numOfTeachers = sc.nextInt();
 		
-		if (numOfEmps > 200)
-			workCapcityPay += 1196.67;
-		else if (numOfEmps > 100) 
-			workCapcityPay += 1019.83;
-		else if (numOfEmps > 10) 
-			workCapcityPay += 869.33;
+		if (numOfTeachers > 200)
+			workCapcityPay += 1196.67f;
+		else if (numOfTeachers > 100) 
+			workCapcityPay += 1019.83f;
+		else if (numOfTeachers > 10) 
+			workCapcityPay += 869.33f;
 		else 
-			workCapcityPay += 775.83;
+			workCapcityPay += 775.83f;
 	}
-	
+
+
 	public void calcGrossPay() {
 		monthlySalary = 5000;
 		grossPay = workCapcityPay + monthlySalary;
+	}
+	
+	public void outPutWorkDetails() {
+		System.out.print(workCapcityPay);
+		System.out.printf("\nNumber of Teachers: " + numOfTeachers + " | Total teacher amount pay = " + money.format(workCapcityPay) +"\n");
+
 	}
 }
