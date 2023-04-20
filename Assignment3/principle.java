@@ -15,7 +15,7 @@ public class principle extends academicEmployees {
 	public int numOfTeachers;
 
 	public void calcTeacherCapacityPay() {
-		System.out.print("\nEnter the amount of Teachers in your school: ");
+		System.out.print("\nEnter the number of Teachers in your school: ");
 		numOfTeachers = sc.nextInt();
 		
 		if (numOfTeachers > 200)
@@ -35,8 +35,8 @@ public class principle extends academicEmployees {
 	}
 	
 	public void outPutWorkDetails() {
-		System.out.print(workCapcityPay);
-		System.out.printf("\nNumber of Teachers: " + numOfTeachers + " | Total teacher amount pay = " + money.format(workCapcityPay) +"\n");
+		System.out.printf("\nNumber of Teachers: " + numOfTeachers + ", capacity bonus = " + money.format(workCapcityPay)
+		+ "\nSet Principle Monthly Salary: " + money.format(monthlySalary)  + "\n");
 
 	}
 }
