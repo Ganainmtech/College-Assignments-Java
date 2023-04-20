@@ -1,3 +1,10 @@
+/*
+Author: Sara Jane Kenny
+Date: 20/04/2023
+This program reads in information from the user and outputs 
+monthly pay and work details, while exercising in inheritance.
+*/
+
 package academicEmployees;
 
 import java.util.Scanner;
@@ -7,13 +14,13 @@ public class academicEmployeesMain {
 	
 	public static void main(String[] args) {
 		char getEmpDetails;
-		char empChoice;
+		char empChoice = 0;
 		String empPpsNum = "";
 		
 		
 		do {	
 			do {
-				System.out.print("\nWould you like to get Employee pay details?(y/n):");
+				System.out.print("\nWould you like to get Employee pay details?(y/n): ");
 				getEmpDetails = sc.nextLine().charAt(0);
 				
 				if (Character.toUpperCase(getEmpDetails) != 'Y' && Character.toUpperCase(getEmpDetails) != 'N')
@@ -22,8 +29,10 @@ public class academicEmployeesMain {
 			} while (Character.toUpperCase(getEmpDetails) != 'Y' && Character.toUpperCase(getEmpDetails) != 'N');
 			
 			// Outputting thank you message when they don't want another quote.
-			if (Character.toUpperCase(getEmpDetails) == 'N') 
+			if (Character.toUpperCase(getEmpDetails) == 'N') {
 				System.out.print("Thank you for using this program.");
+				System.exit(getEmpDetails);
+			}
 				
 			else if (Character.toUpperCase(getEmpDetails) == 'Y') 
 				do { 
@@ -37,21 +46,26 @@ public class academicEmployeesMain {
 						System.out.print("\nChoose your employee status."
 									+ "\nF: Full Time Employee" 
 									+ "\nP: Part Time Employee"
-									+ "\nH: Head Principle Employee" 
+									+ "\nH: Head Principal Employee" 
 									+ "\nS: Sign Out\n");
 									
 						}
 					else
 					{
-						System.err.println("\nEnter your PPS number this should contain 7 numbers followed by a letter.");
+						System.err.println("Your PPS Number should only contain 7 numbers followed by a letter.\n");
 					}
 					
 				} while (!empPpsNum.matches("\\d{7}[a-zA-Z]{1}"));
 			
 				do {
 					
-					System.err.print("Please pick F for Fulltime, P for Parttime, H for Head Principle and S to sign out: ");
+					System.out.print("\nEnter your employment status: ");
 					empChoice = sc.nextLine().charAt(0);
+					
+					if(Character.toUpperCase(empChoice) != 'F' && Character.toUpperCase(empChoice) != 'P'
+						&&Character.toUpperCase(empChoice) != 'H' && Character.toUpperCase(empChoice) != 'S') {
+						System.err.print("Please pick F for Full-Time, P for Part-Time, H for Head Principle and S to sign out!\n");
+					}
 					
 				} while (Character.toUpperCase(empChoice) != 'F' && Character.toUpperCase(empChoice) != 'P'
 						&&Character.toUpperCase(empChoice) != 'H' && Character.toUpperCase(empChoice) != 'S');
@@ -72,6 +86,7 @@ public class academicEmployeesMain {
 					fulltime.calcPrsi();
 					fulltime.calcNetPay();
 					System.out.printf("\nHere are " + empPpsNum + " Full Time work details.\n");
+					fulltime.outPutExamScriptPayment();
 					fulltime.outPutWorkDetails();
 					fulltime.outPutPayDetails();
 				}
@@ -87,6 +102,7 @@ public class academicEmployeesMain {
 					parttime.calcPrsi();
 					parttime.calcNetPay();
 					System.out.printf("\nHere are " + empPpsNum + " Part Time work details.\n");
+					parttime.outPutExamScriptPayment();
 					parttime.outPutWorkDetails();
 					parttime.outPutPayDetails();
 				}
