@@ -25,9 +25,7 @@ public class partTime extends teacher {
 	}
 	
 	public void outPutWorkDetails() {
-		System.out.printf("\nCorrected Exam Scripts:%23s", + examScriptsCorrected + " | Total while €10.18 per script = " + money.format(examScriptsPay));
-		System.out.printf("\nPart Time Hours Worked:%23s", + hoursWorked + " | Total while €34.03 per hour = " + money.format(monthlySalary) + "\n");
+		System.out.printf("\nPart Time Hours Worked: " + hoursWorked + " @ €34.03 per hour = " + money.format(monthlySalary) + "\n");
 
 	}
 }
-
