@@ -6,12 +6,12 @@ package academicEmployees;
 
 import java.util.Scanner;
 import java.text.DecimalFormat;
-import java.math.BigDecimal;
 
 public abstract class academicEmployees {
 	public static Scanner sc = new Scanner (System.in);
 	public static DecimalFormat money = new DecimalFormat ("€0.00");
 	
+	// Q: should i use double for precision?, 
 	protected float tax;
 	protected float prsi;
 	protected float grossPay;
@@ -21,27 +21,23 @@ public abstract class academicEmployees {
 	public void calcTax() {
 		final float taxLowerCharge = 0.22f;
 		final float taxHigherCharge = 0.42f;
-		float taxBasicCharge;
-		float taxSpecialCharge;
-		double sum = 40000/12;
-		System.out.print("sum" + sum);
+		double taxBasicCharge;
+		double taxSpecialCharge;
 	   
-		if (grossPay > 40000/12) {
-	    	taxBasicCharge = (40000/12) * taxLowerCharge;
-	    		System.out.print("\n"+taxBasicCharge);
-	    	taxSpecialCharge = (grossPay - 40000/12) * taxHigherCharge;
-	    	System.out.print("\n" + taxSpecialCharge);
-	        tax = taxBasicCharge + taxSpecialCharge;
-	        System.out.print("\n" + tax);
+		if (grossPay > 3333.33) {
+	    	taxBasicCharge = 3333.33 * taxLowerCharge;
+	    	taxSpecialCharge = (grossPay - 3333.33) * taxHigherCharge;
+	        tax = (float) (taxBasicCharge + taxSpecialCharge); 
 		}
 	    else
 	    	tax = grossPay * taxLowerCharge;
-		System.out.print("\n" + tax);
+		
 		
 	}
 	
 	public void calcPrsi() {
-		prsi = grossPay * 0.04f;
+		final float prsiCharge = 0.04f;
+		prsi = grossPay * prsiCharge;
 		
 	}
 	
@@ -58,5 +54,7 @@ public abstract class academicEmployees {
 		
 	}
 }
+
+
 
 
