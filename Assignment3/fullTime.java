@@ -35,7 +35,7 @@ public class fullTime extends teacher {
 	}
 
 	public void calcDeductions() {
-		System.out.print("\nEnter the amount of days absent: ");
+		System.out.print("\nEnter the number of days absent: ");
 		daysAbsent = sc.nextInt();
 		
 		daysAbsentDeductions = daysAbsent * 62.68f;
@@ -47,9 +47,9 @@ public class fullTime extends teacher {
 	}
 	
 	public void outPutWorkDetails() {
-		System.out.printf("\nCorrected Exam Scripts: " + examScriptsCorrected + " | Total while 10.18 per script = " + money.format(examScriptsPay));
-		System.out.printf("\nPoints on Scale: " + scalePoints + " | Total points on scale pay = " + money.format(scalePointsPay));
-		System.out.printf("\nDays Absent: " + daysAbsent +" | Total deducated while 62.68 per absent day = " + money.format(daysAbsentDeductions) + "\n");
+		System.out.printf("\nDocked Pay: " + daysAbsent +" absent days @ €62.68 per day = " + money.format(daysAbsentDeductions)
+						  + "\nPoints on Scale: " + scalePoints + " points = " + money.format(scalePointsPay)
+						  + "\nSet Full Time Monthly Salary: " + money.format(monthlySalary) + "\n");
 		
 	}
 }
