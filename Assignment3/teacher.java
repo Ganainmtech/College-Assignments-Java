@@ -5,6 +5,7 @@
 package academicEmployees;
 
 import java.util.Scanner;
+
 public class teacher extends academicEmployees {
 	public static Scanner sc = new Scanner (System.in);
 	
@@ -12,10 +13,15 @@ public class teacher extends academicEmployees {
 	protected float examScriptsPay;
 
 	public void calcCorrectedScripts() {
-		System.out.print("\nEnter the amount of scripts corrected: ");
+		System.out.print("\nEnter the number of scripts corrected: ");
 		examScriptsCorrected = sc.nextInt();
 		
 		if (examScriptsCorrected > 0)
 			examScriptsPay = examScriptsCorrected * 10.18f;
 	}	
+	
+	public void outPutExamScriptPayment() {
+		System.out.printf("\nExam Script Payment: " + examScriptsCorrected + " scripts @ €10.18 per script = " + money.format(examScriptsPay));
+	}
 }
+
