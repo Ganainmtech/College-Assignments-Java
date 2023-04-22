@@ -11,19 +11,22 @@ public abstract class academicEmployees {
 	public static Scanner sc = new Scanner (System.in);
 	public static DecimalFormat money = new DecimalFormat ("€0.00");
 	
-	// Q: should i use double for precision?, 
+	// Creating protected type variables to be use via inheritance
 	protected float tax;
 	protected float prsi;
 	protected float grossPay;
 	protected float netPay;
 	protected float monthlySalary;
 
+	// Method to calculate the tax
 	public void calcTax() {
 		final float taxLowerCharge = 0.22f;
 		final float taxHigherCharge = 0.42f;
+		// note ** used Double for precision 
 		double taxBasicCharge;
 		double taxSpecialCharge;
 	   
+		// If gross pay is greater than 40000/12 charge at the higher charge as well as the lower charge
 		if (grossPay > 3333.33) {
 	    	taxBasicCharge = 3333.33 * taxLowerCharge;
 	    	taxSpecialCharge = (grossPay - 3333.33) * taxHigherCharge;
@@ -31,21 +34,23 @@ public abstract class academicEmployees {
 		}
 	    else
 	    	tax = grossPay * taxLowerCharge;
-		
-		
+			
 	}
 	
+	// Method to calculate the prsi
 	public void calcPrsi() {
 		final float prsiCharge = 0.04f;
 		prsi = grossPay * prsiCharge;
 		
 	}
 	
+	// Method to calculate the net pay
 	public void calcNetPay() {
 		netPay = grossPay - tax - prsi;
 	
 	}
 	
+	// Method to output the main pay details
 	public void outPutPayDetails() {
 		System.out.printf("\nGrossPay:%23s", money.format(grossPay));
 		System.out.printf("\nTax:%28s", money.format(tax));
@@ -54,7 +59,6 @@ public abstract class academicEmployees {
 		
 	}
 }
-
 
 
 
