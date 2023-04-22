@@ -11,12 +11,13 @@ public class fullTime extends teacher {
 	public static Scanner sc = new Scanner (System.in);
 	public static DecimalFormat money = new DecimalFormat ("€0.00");
 	
+	// Creating public type variables
 	public float scalePointsPay;
 	public float daysAbsentDeductions;
 	public int scalePoints;
 	public int daysAbsent;
 
-
+	// Method to calculate the the scale points pay
 	public void calcScalePointsPay() {
 		do {
 			System.out.print("\nEnter your Points on Scale: ");
@@ -34,6 +35,7 @@ public class fullTime extends teacher {
 		} while (scalePoints > 4 || scalePoints < 0);
 	}
 
+	// Method to calculate the deductions for days absent
 	public void calcDeductions() {
 		System.out.print("\nEnter the number of days absent: ");
 		daysAbsent = sc.nextInt();
@@ -41,11 +43,13 @@ public class fullTime extends teacher {
 		daysAbsentDeductions = daysAbsent * 62.68f;
 	}
 
+	// Method to calculate the the unique gross pay for Full Time employees
 	public void calcGrossPay() {
 		monthlySalary = 3343.58f;
 		grossPay = monthlySalary + examScriptsPay + scalePointsPay - daysAbsentDeductions;
 	}
 	
+	// Method to calculate the specific work details to Full Time employees
 	public void outPutWorkDetails() {
 		System.out.printf("\nDocked Pay: " + daysAbsent +" absent days @ €62.68 per day = " + money.format(daysAbsentDeductions)
 						  + "\nPoints on Scale: " + scalePoints + " points = " + money.format(scalePointsPay)
