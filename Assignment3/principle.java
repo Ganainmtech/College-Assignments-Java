@@ -7,13 +7,15 @@ package academicEmployees;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
-public class principle extends academicEmployees {
+public class principal extends academicEmployees {
 	public static Scanner sc = new Scanner (System.in);
 	public static DecimalFormat money = new DecimalFormat ("€0.00");
 	
+	// Creating public type variables
 	public float workCapcityPay;
 	public int numOfTeachers;
 
+	// Method to calculate the teacher capacity pay
 	public void calcTeacherCapacityPay() {
 		System.out.print("\nEnter the number of Teachers in your school: ");
 		numOfTeachers = sc.nextInt();
@@ -29,14 +31,16 @@ public class principle extends academicEmployees {
 	}
 
 
+	// Method to calculate the the unique gross pay for the Principal
 	public void calcGrossPay() {
 		monthlySalary = 5000;
 		grossPay = workCapcityPay + monthlySalary;
 	}
 	
+	// Method to calculate the specific work details to the Principal
 	public void outPutWorkDetails() {
 		System.out.printf("\nNumber of Teachers: " + numOfTeachers + ", capacity bonus = " + money.format(workCapcityPay)
-		+ "\nSet Principle Monthly Salary: " + money.format(monthlySalary)  + "\n");
+		+ "\nSet Principal Monthly Salary: " + money.format(monthlySalary)  + "\n");
 
 	}
 }
