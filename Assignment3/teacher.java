@@ -9,9 +9,11 @@ import java.util.Scanner;
 public class teacher extends academicEmployees {
 	public static Scanner sc = new Scanner (System.in);
 	
+	// Creating protected type variables to be use via inheritances
 	protected int examScriptsCorrected;
 	protected float examScriptsPay;
 
+	// Method to calculate the corrected scripts
 	public void calcCorrectedScripts() {
 		System.out.print("\nEnter the number of scripts corrected: ");
 		examScriptsCorrected = sc.nextInt();
@@ -20,6 +22,7 @@ public class teacher extends academicEmployees {
 			examScriptsPay = examScriptsCorrected * 10.18f;
 	}	
 	
+	// Method to output the exam script payment
 	public void outPutExamScriptPayment() {
 		System.out.printf("\nExam Script Payment: " + examScriptsCorrected + " scripts @ €10.18 per script = " + money.format(examScriptsPay));
 	}
