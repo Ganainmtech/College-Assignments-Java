@@ -11,8 +11,10 @@ public class partTime extends teacher {
 	public static Scanner sc = new Scanner (System.in);
 	public static DecimalFormat money = new DecimalFormat ("€0.00");
 	
+	// Creating public type variables
 	public float hoursWorked;
 	
+	// Method to calculate the monthly salary via hourly rate
 	public void calcMonthlySalary() {
 		System.out.print("\nEnter the hours worked: ");
 		hoursWorked = sc.nextFloat();
@@ -20,10 +22,12 @@ public class partTime extends teacher {
 		monthlySalary = hoursWorked * 34.03f;
 	}
 
+	// Method to calculate the the unique gross pay for Part Time employees
 	public void calcGrossPay() {
 		grossPay = monthlySalary + examScriptsPay;
 	}
 	
+	// Method to calculate the specific work details to Part Time employees
 	public void outPutWorkDetails() {
 		System.out.printf("\nPart Time Hours Worked: " + hoursWorked + " @ €34.03 per hour = " + money.format(monthlySalary) + "\n");
 
