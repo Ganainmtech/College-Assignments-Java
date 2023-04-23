@@ -23,39 +23,57 @@
       <ownedOperation xmi:type="uml:Operation" xmi:id="_la9OENMDEe2Pobs8VjnM8Q" name="calcTax"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_mpYJANMDEe2Pobs8VjnM8Q" name="calcPrsi"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_vxyBgNMPEe2Pobs8VjnM8Q" name="calcNetPay"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_6Biz4N4BEe2HsoRFCtmGSg" name="outPutPayDetails"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_hyuDcNMAEe2Pobs8VjnM8Q" name="fullTime">
-      <generalization xmi:type="uml:Generalization" xmi:id="_CxN9cNMEEe2Pobs8VjnM8Q" general="_hytcYNMAEe2Pobs8VjnM8Q"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_hPoLMNMFEe2Pobs8VjnM8Q" name="examScriptsPay">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
-      </ownedAttribute>
+      <generalization xmi:type="uml:Generalization" xmi:id="_CxN9cNMEEe2Pobs8VjnM8Q" general="_tpQTcN3_Ee2HsoRFCtmGSg"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_hrHX4NMGEe2Pobs8VjnM8Q" name="scalePointsPay">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_fntDwNMIEe2Pobs8VjnM8Q" name="daysAbsentDeductions">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
       </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_Bb1iENMIEe2Pobs8VjnM8Q" name="calcBonusPay"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_DEZbUNMIEe2Pobs8VjnM8Q" name="calcCorrectedScripts"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_mqH9oNMIEe2Pobs8VjnM8Q" name="calcDeductions"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_BVa-gN1wEe2tKK4LstpUvQ" name="calcGrossPay"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_hyuDcdMAEe2Pobs8VjnM8Q" name="partTime">
-      <generalization xmi:type="uml:Generalization" xmi:id="_BgShENMEEe2Pobs8VjnM8Q" general="_hytcYNMAEe2Pobs8VjnM8Q"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_va86ENMIEe2Pobs8VjnM8Q" name="examScripsCorrected">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wu0gwN4AEe2HsoRFCtmGSg" name="scalePoints">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_-YnzQNMIEe2Pobs8VjnM8Q" name="calcMonthlySalary"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_D_yQENMJEe2Pobs8VjnM8Q" name="calcCorrectedScripts"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_Bvd2MN1wEe2tKK4LstpUvQ" name="calcGrossPay"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pJCMYN4GEe2HsoRFCtmGSg" name="daysAbsent">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Bb1iENMIEe2Pobs8VjnM8Q" name="calcScalePointsPay"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_mqH9oNMIEe2Pobs8VjnM8Q" name="calcDeductions"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Kep8AN4BEe2HsoRFCtmGSg" name="calcGrossPay"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_uqdDAN4FEe2HsoRFCtmGSg" name="outPutWorkDetails"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_hyuDctMAEe2Pobs8VjnM8Q" name="principle">
+    <packagedElement xmi:type="uml:Class" xmi:id="_hyuDcdMAEe2Pobs8VjnM8Q" name="partTime">
+      <generalization xmi:type="uml:Generalization" xmi:id="_BgShENMEEe2Pobs8VjnM8Q" general="_tpQTcN3_Ee2HsoRFCtmGSg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QUbYYN4IEe2HsoRFCtmGSg" name="hoursWorked">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_-YnzQNMIEe2Pobs8VjnM8Q" name="calcMonthlySalary"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_K8knEN4BEe2HsoRFCtmGSg" name="calcGrossPay"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_zTxXgN4FEe2HsoRFCtmGSg" name="outPutWorkDetails"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hyuDctMAEe2Pobs8VjnM8Q" name="principal">
       <generalization xmi:type="uml:Generalization" xmi:id="_DlvKoNMEEe2Pobs8VjnM8Q" general="_hytcYNMAEe2Pobs8VjnM8Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_rarGENMJEe2Pobs8VjnM8Q" name="workCapcityPay">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_iXQk0NMJEe2Pobs8VjnM8Q" name="calcBonusPay"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_DroPYN4JEe2HsoRFCtmGSg" name="numOfTeachers">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_iXQk0NMJEe2Pobs8VjnM8Q" name="calcTeacherCapacityPay"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Ay_m4N1wEe2tKK4LstpUvQ" name="calcGrossPay"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_znUloN4FEe2HsoRFCtmGSg" name="outPutWorkDetails"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_tpQTcN3_Ee2HsoRFCtmGSg" name="teacher">
+      <generalization xmi:type="uml:Generalization" xmi:id="_E8MOcN4AEe2HsoRFCtmGSg" general="_hytcYNMAEe2Pobs8VjnM8Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_38uHUN3_Ee2HsoRFCtmGSg" name="examScriptsCorrected" visibility="protected">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_4l_t0N3_Ee2HsoRFCtmGSg" name="examScriptsPay" visibility="protected">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_8N5ooN3_Ee2HsoRFCtmGSg" name="calcCorrectedScripts"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_aP1f0NMLEe2Pobs8VjnM8Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aP8NgNMLEe2Pobs8VjnM8Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
