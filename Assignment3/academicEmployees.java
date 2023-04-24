@@ -22,7 +22,7 @@ public abstract class academicEmployees {
 	public void calcTax() {
 		final float taxLowerCharge = 0.22f;
 		final float taxHigherCharge = 0.42f;
-		// note ** used Double for precision 
+		// note ** used Double for decimal precision since money is involved
 		double taxBasicCharge;
 		double taxSpecialCharge;
 	   
@@ -59,6 +59,7 @@ public abstract class academicEmployees {
 		
 	}
 }
+
 
 
 
