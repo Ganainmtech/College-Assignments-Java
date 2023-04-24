@@ -29,16 +29,15 @@ public class academicEmployeesMain {
 		} while (Character.toUpperCase(getEmpDetails) == 'Y');
 	}
 	
+	// This method processes the employee
 	private static void processEmployee () {
-		// This method processes the employee
-		
 		// While user input is not equal to a y or n keep looping and output an error with clear instructions
 		do {
 			System.out.print("\nWould you like to get Employee pay details?(y/n): ");
 			getEmpDetails = sc.nextLine().charAt(0);
 						
 			if (Character.toUpperCase(getEmpDetails) != 'Y' && Character.toUpperCase(getEmpDetails) != 'N')
-				System.err.print("\nPlease enter y/Y for yes or n/Y for no\n");
+				System.err.print("\nPlease enter y/Y for yes or n/N for no\n");
 						
 			} while (Character.toUpperCase(getEmpDetails) != 'Y' && Character.toUpperCase(getEmpDetails) != 'N');
 					
@@ -49,8 +48,8 @@ public class academicEmployeesMain {
 			}
 	}
 	
-	private static void readPpsNum () {
-		// This method reads the PPS number 
+	// This method reads the PPS number
+	private static void readPpsNum () { 
 		if (Character.toUpperCase(getEmpDetails) == 'Y') 
 			do { 
 				System.out.print("Please enter your PPS Number to sign in: ");
@@ -71,13 +70,14 @@ public class academicEmployeesMain {
 			} while (!empPpsNum.matches("\\d{7}[a-zA-Z]{1}"));
 	}
 		
+	// This method reads employee status
 	private static void readEmployeeStatus () {
-		// This method reads employee status
 		do {
 			// Retrieving the employees work status
 			System.out.print("\nEnter your employment status: ");
 			empChoice = sc.nextLine().charAt(0);
 			
+			// If empChoice is not equal to any option listed output and error and loop until correct user input
 			if(Character.toUpperCase(empChoice) != 'F' && Character.toUpperCase(empChoice) != 'P'
 				&&Character.toUpperCase(empChoice) != 'H' && Character.toUpperCase(empChoice) != 'S') {
 				System.err.print("Please pick F for Full-Time, P for Part-Time, H for Head Principal and S to sign out!\n");
@@ -95,7 +95,7 @@ public class academicEmployeesMain {
 	
 	private static void fullTimeEmployee () {
 		
-		// Calculating and outputting Full Time work and pay details
+		// Calling Full Time work and pay details
 		if (Character.toUpperCase(empChoice) == 'F') {
 			fullTime fulltime = new fullTime();
 
@@ -115,7 +115,7 @@ public class academicEmployeesMain {
 	}
 	
 	private static void partTimeEmployee () {
-		// Calculating and outputting Part Time work and pay details
+		// Calling Part Time work and pay details
 		if (Character.toUpperCase(empChoice) == 'P') {
 			partTime parttime = new partTime();
 
@@ -135,7 +135,7 @@ public class academicEmployeesMain {
 	
 	private static void headPrincipal () {
 		
-		// Calculating and outputting the Principal work and pay details
+		// Calling the Principal work and pay details
 		if (Character.toUpperCase(empChoice) == 'H') {
 			principal principal = new principal();
 
